@@ -7,5 +7,10 @@ resource "google_project" "shared_services_tf_project" {
   name = "Shared Services Terraform"
   project_id = "reechar-key-shared-services-tf"
   folder_id = "${google_folder.shared_services_folder.name}"
-  billing_account = "${var.billing_account}"
+  # billing_account = "${var.billing_account}"
+}
+
+resource "google_project_service" "shared_service_billing" {
+  project_id = "reechar-key-shared-services-tf"
+    service = "cloudbilling.googleapis.com"
 }
