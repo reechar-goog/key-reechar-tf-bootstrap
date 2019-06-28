@@ -12,5 +12,11 @@ resource "google_project" "shared_services_tf_project" {
 
 resource "google_project_service" "shared_service_billing" {
   project = "reechar-key-shared-services-tf"
-    service = "cloudbilling.googleapis.com"
+  service = "cloudbilling.googleapis.com"
 }
+
+resource "google_project_service" "shared_services_cb" {
+  project = "${google_project.shared_services_tf_project.project_id}"
+  service = "cloudbilling.googleapis.com"
+}
+
