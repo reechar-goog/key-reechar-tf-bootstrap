@@ -5,5 +5,5 @@ variable "org_id" {
 
 variable "billing_account" {
   description = "Default billing account to use for new projects"
-  default = "0030A3-D6BEAE-9C7088	"
+  default = "0030A3-D6BEAE-9C7088"
 }
