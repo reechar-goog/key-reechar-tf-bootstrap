@@ -42,3 +42,21 @@ resource "google_folder_iam_member" "shared_services_tf_owner" {
   role    = "roles/owner"
   member  = "serviceAccount:${google_project.shared_services_tf_project.number}@cloudbuild.gserviceaccount.com"
 }
+
+resource "google_folder_iam_member" "shared_services_tf_folder_adminW" {
+  folder = "${google_folder.shared_services_folder.name}"
+  role    = "roles/resourcemanager.folderAdmin"
+  member  = "serviceAccount:${google_project.shared_services_tf_project.number}@cloudbuild.gserviceaccount.com"
+}
+
+resource "google_folder_iam_member" "shared_services_tf_project_creator" {
+  folder = "${google_folder.shared_services_folder.name}"
+  role    = "roles/resourcemanager.projectCreator"
+  member  = "serviceAccount:${google_project.shared_services_tf_project.number}@cloudbuild.gserviceaccount.com"
+}
+
+resource "google_billing_account_iam_member" "shared_services_tf_billing_user" {
+  billing_account_id = "${var.billing_account}"
+  role               = "roles/billing.user"
+  member  = "serviceAccount:${google_project.shared_services_tf_project.number}@cloudbuild.gserviceaccount.com"
+}
