@@ -17,6 +17,6 @@ resource "google_project_service" "shared_service_billing" {
 
 resource "google_project_service" "shared_services_cb" {
   project = "${google_project.shared_services_tf_project.project_id}"
-  service = "cloudbilling.googleapis.com"
+  service = "cloudbuild.googleapis.com"
 }
 
