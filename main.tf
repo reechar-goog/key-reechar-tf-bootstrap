@@ -40,5 +40,5 @@ resource "google_storage_bucket" "shared_services_tf_state_bucket" {
 resource "google_folder_iam_member" "shared_services_tf_owner" {
   folder = "${google_folder.shared_services_folder.name}"
   role    = "roles/owner"
-  member  = "serviceAccount:{google_project.shared_services_tf_project.number}@cloudbuild.gserviceaccount.com"
+  member  = "serviceAccount:${google_project.shared_services_tf_project.number}@cloudbuild.gserviceaccount.com"
 }
